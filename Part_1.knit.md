@@ -22,7 +22,8 @@ We investigated the distribution of averages of 40 exponentials doing 1000 simul
 3. Set number of simulations to 1000: variable, 'nosim'.
 
 
-```{r}
+
+```r
 my_seed = 512 #for random number generators based simulations
 set.seed(my_seed) 
 
@@ -37,14 +38,16 @@ We plot the distribution of a 1000 simulated means of sampletaken from an expone
 
 The theoratical mean of the distribution, shown using a vertical red line, is close to the center of the distribution of means of the samples.
 
-```{r}
+
+```r
 for (i in 1 : nosim) mns = c(mns, mean(rexp(samplesize, lambda)))
 hist(mns, main = "Distribution of sample means")
 theo_mean <- mean(mns)
 abline(v = theo_mean, col = "red", lty = 2)
 text(theo_mean - .5, y = 230, labels = paste("Theoretical Mean:", round(theo_mean,2)))
-
 ```
+
+![](Part_1_files/figure-latex/unnamed-chunk-2-1.pdf) 
 
 
 
