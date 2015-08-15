@@ -37,11 +37,11 @@ The theoratical mean of the distribution, shown using a vertical red line, is cl
 
 ```{r}
 for (i in 1 : nosim) sample_means = c(sample_means, mean(rexp(samplesize, lambda)))
-hist(sample_means, main = "Distribution of sample means", xlab = "Sample means")
+hist(sample_means, main = "Distribution of sample means", xlab = "Sample means",xlim = c(-1,11), sub = "Mean of sample means shown as red dashed line")
 theo_mean <- mean(sample_means)
 abline(v = theo_mean, col = "red", lty = 2)
-text(theo_mean - 1.2, y = 228, labels = paste("Theoretical Mean (1/lambda) = 5"), col = "red")
-text(theo_mean + 1.2, y = 238, labels = paste("Mean of Sample Means:", round(theo_mean,2)), col = "red")
+text(x = 1.5, y = 185, labels = paste("Theoretical mean: 5", "\n","Simulated: ", round(theo_mean,2)), col = "red", lwd = 2)
+legend("topleft", legend = "Mean of sample means", lty = 2, col = "red", lwd = 2)
 ```
 
 # Comparing Distributions 
@@ -74,7 +74,5 @@ text(theo_variance + 30, y = 250, labels = paste("Mean of Sample Variances:", ro
 ### The mean of sample variances is very close to the theoretical variance of 25
 
 
-
-```{r}
-
-```
+## This concludes part 1 of the project
+# Thank you
