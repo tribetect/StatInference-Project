@@ -1,0 +1,48 @@
+---
+title: 'Part 2: Analysis of Tooth Growth Data'
+author: '@tribetect'
+date: "August 15, 2015"
+output: pdf_document
+---
+
+#Overview
+
+#Exploratory data analysis
+
+The data consists of 60 observations of growth, dose, and consists of two groups by growth supplement, 30 each of Orange Juice and 30 cases with 
+
+```{r message=FALSE}
+require(datasets); require(ggplot2)
+
+qplot(len, data = ToothGrowth, facets = dose ~ supp, main = "Tooth growth", xlab = "Tooth length", ylab = "Observations")
+
+
+```
+
+## Summary of exploratory data analysis
+
+### Comparative effectiveness of supplements
+OJ may be more effective than VC, although the different may be very slight
+
+### Effect of dose
+Higher doses of supplement may result in more growth
+
+#Hypothesis testing
+
+### Null hypothesis: H0: mean_OJ = mean_VC 
+Growth in teeth grouped by supplements OJ and VC is similar
+
+###H_alt: Growth in teeth grouped by supplements OJ and VC is NOT 
+
+```{r}
+        t.test(len ~ supp, paired = FALSE, var.equal = TRUE, data = ToothGrowth)
+```
+
+## Assumptions
+1. Length is predicted by dose and supp 
+2. 95% confidence level is sufficient in reducing the likelyhood of inferential errors
+3. Two groups of total 60 subjects are an unpaired groups
+4. The variances of the two groups are assumed equal variance
+
+## Conclusion
+The two supplements, OJ and VC, do not differ significantly, we infer with 95% confidence. We do not reject our null hypothesis.
